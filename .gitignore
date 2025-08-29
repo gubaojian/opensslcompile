@@ -45,3 +45,9 @@ pc/openssl_v_3_5_1/openssl-3.5.1/
 # pc/openssl_v_3_5_1/cdeps_*.zip
 
 pc/openssl_v_3_5_1/openssl-*/
+
+pc/openssl_v_3_5_0/openssl-3.5.0/
+
+# pc/openssl_v_3_5_0/cdeps_*.zip
+
+pc/openssl_v_3_5_0/openssl-*/
