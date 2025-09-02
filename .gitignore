@@ -54,6 +54,8 @@ pc/openssl_v_3_5_0/openssl-*/
 
 
 pc/openssl/*/*.zip
+pc/openssl/*/openssl*/
+pc/openssl/*/*.gz
 
 pc/openssl_v_3_5_0/*.gz
 
