@@ -14,7 +14,9 @@ if [ -f "$file_path" ]; then
 else
   echo "$file_path 不存在 try download openssl "
   rm -rf openssl-${VERSION}.tar.gz
-  curl -O https://github.com/openssl/openssl/releases/download/openssl-${VERSION}/openssl-${VERSION}.tar.gz
+  url=https://github.com/openssl/openssl/releases/download/openssl-${VERSION}/openssl-${VERSION}.tar.gz
+  echo "${url}"
+  curl -OL ${url}
 fi
 rm -rf openssl-${VERSION}
 echo "Extracting OpenSSL source code..."
