@@ -2,7 +2,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "Script directory: $SCRIPT_DIR"
 uname -a
 
-rm -rf cdeps_debug_openssl_3_5_0.zip
+rm -rf cdeps_openssl_3_5_0.zip
 
 openssl_download_file="openssl-3.5.0.tar.gz"
 echo "Checking for openssl download file: $openssl_download_file"
@@ -18,23 +18,17 @@ rm -rf openssl-3.5.0
 echo "Extracting OpenSSL source code..."
 tar -zxvf openssl-3.5.0.tar.gz
 cd openssl-3.5.0
-rm -rf $HOME/cdeps_debug/openssl
-mkdir -p $HOME/cdeps_debug/openssl
- ./Configure --prefix=$HOME/cdeps_debug/openssl --openssldir=$HOME/cdeps_debug/openssl --debug -g -O0 -Wall -Wextra -Iinclude -fPIC
+rm -rf $HOME/cdeps/openssl
+mkdir -p $HOME/cdeps/openssl
+ ./Configure --prefix=$HOME/cdeps/openssl --openssldir=$HOME/cdeps/openssl  --release
  make -j12
  make install_sw
+ 
 cd ..
-rm -rf cdeps_debug_openssl_3_5_0.zip
-cd $HOME/cdeps_debug/
-zip -r cdeps_debug_openssl_3_5_0.zip openssl
+rm -rf cdeps_openssl_3_5_0.zip
+cd $HOME/cdeps/
+zip -r cdeps_openssl_3_5_0.zip openssl
 echo "openssl build and packaging completed."
-mv cdeps_debug_openssl_3_5_0.zip "$SCRIPT_DIR/cdeps_debug_openssl_3_5_0.zip"
-echo "Package moved to script directory: $SCRIPT_DIR/cdeps_debug_openssl_3_5_0.zip"
+mv cdeps_openssl_3_5_0.zip "$SCRIPT_DIR/cdeps_openssl_3_5_0.zip"
+echo "Package moved to script directory: $SCRIPT_DIR/cdeps_openssl_3_5_0.zip"
 echo "Build script completed successfully."
-cd $SCRIPT_DIR
-rm -rf $HOME/cdeps_source/openssl-3.5.0
-mkdir -p $HOME/cdeps_source/openssl-3.5.0
-mv openssl-3.5.0 $HOME/cdeps_source/
-
-
-
